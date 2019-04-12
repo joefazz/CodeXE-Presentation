@@ -1,56 +1,55 @@
-import {Cite} from 'spectacle';
+import {Cite, Appear, List, ListItem, Text, Heading, Link, S, Image} from 'spectacle';
 import {DarkSlide, CodeSlide} from './slides';
 import RegularComponent from './regular-component';
 
-# Spectacle MDX!
+export default DarkSlide
 
-**open the presentation/index.mdx file to get started**
+# CodeXE
+## An online development environment
+**By Joe Fazzino**
+
+---
+# Why? 
+<List>
+  <Appear>
+    <ListItem>Installing tools is a bad experience</ListItem>
+  </Appear>
+  <Appear>
+    <ListItem>Limited resources on a local machine</ListItem>  
+  </Appear>
+  <Appear>
+    <ListItem>The web is powerful now</ListItem>
+  </Appear>
+</List>
+---
+export default DarkSlide
+
+# How?
+
+<Appear>
+  <Heading size={2}>Containers</Heading>
+</Appear>
+
+---
+
+![containers-vs-vms](https://previews.dropbox.com/p/thumb/AAawShzAut66d0VetDKXOJkX-0LGQ9cIp9bPzQVU9iYks2JrWMPEEYjL3EppHgxuGur52pjx9Xd4QAV0FVZoOoTcdAmhSyZiDaUe1fKTT7jmm5x78t2hX0-cC749w0ygICELLkCAYSIq-_O2RLDUmdDjHMUCAVe6Yz6JAVlhqyzBd4QCQ8hUgVe33k9vipHg-mSU8IPhy0c-BoD3DnuDI5ISQ1VEc77xy1el8wvDEimNndK_-D-S8ftlGW7uY7NMdZjoYvl94j39hUwcLH0QxQAOaqbW3QOYdeIQqieiFm_lC-9Mc3csru8_UdszNZPlrnaJ_gazOY5I4najO-LjUyur/p.png?size_mode=5)
 
 ---
 export default DarkSlide
 
-export const transition = ['zoom']
-
-# Write your Spectacle Presentations in Markdown
-## And seamlessly use React Components  
-**How sweet is that**  
-**(super sweet)**
-
----
-
-![datboi](https://pbs.twimg.com/media/CkjFUyTXEAEysBY.jpg)
-
+<Link href={'http://localhost:3000'} target={'_blank'}>
+  <Heading size={1}>
+    <S type={'bold'}>
+      Demo
+    </S>
+  </Heading>
+</Link>
 
 ---
 
-<RegularComponent/>
+# Architecture
 
----
-
-###### Typography
-
-# Heading 1
-
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
-
-Standard Text
-
----
-
-###### Standard List
-
-- Item 1
-- Item 2
-- Item 3
-- Item 4
+<Image height={600} src={'https://previews.dropbox.com/p/thumb/AAZfSmv3hhGQHvRp1psOSTi7YBl99NWnRpLFFV7OpfE8nmVh0ehwhMRMkIsEtBh83xafwPSOe6K3ipp96Dje-Vvn4p20Al65g_ziJdG485YLvOeMzQznJBJv2Yy9FLijt1BA0P06JmavDjns7-gLLIrfiSOmDMOliP5hCKtW3WW7uHI-5jyVYjlu__9IHNeKB3UZ9bf_9pfxha4rKTkTLNv8hpeaJC8OzYmsAkDFIhWH5B2jJOIlppSIUgG2S32aHLv9ENnZ5tAtwuZ80tJmgFQp9aIKDMEB1l4sJjHj739bec-z_qpgNjpe0tvGOLx8JgAclFmpmj-6Q9bmCVHY4N1z/p.png?size_mode=5'}></Image>
 
 ---
 
