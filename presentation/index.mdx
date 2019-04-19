@@ -1,4 +1,4 @@
-import {Cite, Appear, List, ListItem, Text, Heading, Link, S, Image} from 'spectacle';
+import {Cite, Appear, List, ListItem, Text, Heading, Link, S, Image, Notes} from 'spectacle';
 import {DarkSlide, CodeSlide} from './slides';
 import RegularComponent from './regular-component';
 
@@ -8,19 +8,39 @@ export default DarkSlide
 ## An online development environment
 **By Joe Fazzino**
 
+<Notes>
+  <ol>
+    <li>Introduction - About me (I'm Joe)</li>
+    <li>Introduce project</li>
+    <blockquote><i>"An online development environment so anyone with an internet connection can get started with programming"</i></blockquote>
+  </ol>
+</Notes>
 ---
 # Why? 
-<List>
-  <Appear>
-    <ListItem>Installing tools is a bad experience</ListItem>
-  </Appear>
-  <Appear>
-    <ListItem>Limited resources on a local machine</ListItem>  
-  </Appear>
-  <Appear>
-    <ListItem>The web is powerful now</ListItem>
-  </Appear>
-</List>
+
+<Appear>
+<p>Installing tools is a bad experience</p>
+</Appear>
+
+<Appear>
+<p>Limited resources on a local machine</p>
+</Appear>
+
+<Appear>
+<p>The web is powerful now</p>
+</Appear>
+
+<Notes>
+  <ol>
+    <li>Installing Visual Studio is long and slow and that's just in this country(!)</li>
+    <li>The command line is intimidating for new developers</li>
+    <li><b>NEXT LI</b></li>
+    <li>Machines at public places such as a library or an office don't have good specs nor access to download tools</li>
+    <li><b>NEXT LI</b></li>
+    <li>The browser is one of the most powerful runtimes on modern computers</li>
+    <li>It's powering desktop apps thanks to electron</li>
+  </ol>
+</Notes>
 ---
 export default DarkSlide
 
@@ -30,42 +50,121 @@ export default DarkSlide
   <Heading size={2}>Containers</Heading>
 </Appear>
 
+<Notes>
+  <p>To create a virtual developer environment some aspect of isolation is required</p>
+  <p><b>How will this work</b></p>
+
+  <ul>
+    <li>Initial prototype was using child forked processes to run the CLI repls</li>
+    <li>Not a great idea to have people executing code directly on your server</li>
+  </ul>
+
+  <cite>Containers</cite>
+
+  <ul>
+    <li>In case you're unfamilliar, containers are a way of running <b>lightweight virtualised environments similar to virtual machines</b></li>
+    <li><i>Docker</i> is the most mainstream container implementation but that's built on top of the <i>Linux Containers</i> technology</li>
+  </ul>
+</Notes>
 ---
 
-![containers-vs-vms](https://previews.dropbox.com/p/thumb/AAawShzAut66d0VetDKXOJkX-0LGQ9cIp9bPzQVU9iYks2JrWMPEEYjL3EppHgxuGur52pjx9Xd4QAV0FVZoOoTcdAmhSyZiDaUe1fKTT7jmm5x78t2hX0-cC749w0ygICELLkCAYSIq-_O2RLDUmdDjHMUCAVe6Yz6JAVlhqyzBd4QCQ8hUgVe33k9vipHg-mSU8IPhy0c-BoD3DnuDI5ISQ1VEc77xy1el8wvDEimNndK_-D-S8ftlGW7uY7NMdZjoYvl94j39hUwcLH0QxQAOaqbW3QOYdeIQqieiFm_lC-9Mc3csru8_UdszNZPlrnaJ_gazOY5I4najO-LjUyur/p.png?size_mode=5)
+![containers-vs-vms](https://codexe.ams3.digitaloceanspaces.com/Virtualisation.png)
 
+<Notes>
+  <ol>
+    <li>Containers being similar to virtual machines, here's an illustration of that</li>
+    <li>Biggest different is no hypervisor and not Guest OS</li>
+    <li>Docker engine instead</li>
+    <li>Explain how by removing hypervisor things get way fast</li>
+    <li>Docker engine sets up the linux containers based off of <i>Docker images</i></li>
+    <li>Image can be preconfigured to automatically install tools when it's created</li>
+  </ol>
+</Notes>
 ---
 export default DarkSlide
 
 <Link href={'http://localhost:3000'} target={'_blank'}>
-  <Heading size={1}>
-    <S type={'bold'}>
+  <S type={'underline'}>
+    <Heading size={1}>
       Demo
-    </S>
-  </Heading>
+    </Heading>
+  </S>
 </Link>
 
+<Notes>Click the link you twit</Notes>
 ---
 
 # Architecture
 
-<Image height={600} src={'https://previews.dropbox.com/p/thumb/AAZfSmv3hhGQHvRp1psOSTi7YBl99NWnRpLFFV7OpfE8nmVh0ehwhMRMkIsEtBh83xafwPSOe6K3ipp96Dje-Vvn4p20Al65g_ziJdG485YLvOeMzQznJBJv2Yy9FLijt1BA0P06JmavDjns7-gLLIrfiSOmDMOliP5hCKtW3WW7uHI-5jyVYjlu__9IHNeKB3UZ9bf_9pfxha4rKTkTLNv8hpeaJC8OzYmsAkDFIhWH5B2jJOIlppSIUgG2S32aHLv9ENnZ5tAtwuZ80tJmgFQp9aIKDMEB1l4sJjHj739bec-z_qpgNjpe0tvGOLx8JgAclFmpmj-6Q9bmCVHY4N1z/p.png?size_mode=5'}></Image>
+<Image height={600} src={'https://codexe.ams3.digitaloceanspaces.com/CodeXE.png'}></Image>
+
+<Notes>
+  <p><b>Looks complicated but this is 3 different user flows being represented</b></p>
+  
+  <h2>Commonalities</h2>
+  <ul>
+    <li>All clients connect to the server with a websocket connection for low latency communication</li>
+    <li>All clients get given a <b>primary container</b></li>
+    <li><i>point out that as 3 has just connected his container is being provisioned from an Alpine image</i></li>
+  </ul>
+  
+  <h2>User 1</h2>
+  <ul>
+    <li>Communicates through the server to their personal container</li>
+  </ul>
+
+  <h2>User 2</h2>
+  <ul>
+    <li>Main container is paused because they're doing an exercise</li>
+    <li>Exercise data is stored in a MongoDB database</li>
+    <li>Exercises are simply images of the REPLs or in C's case just bash</li>
+    <li>Once an exercises is exited the exercise container is destroyed</li>
+  </ul>
+</Notes>
 
 ---
+export default DarkSlide
 
-> Example Quote
+# Security
 
-<Cite>Author</Cite>
+Linux Containers are enabled by `cgroups` and `namespaces`
 
+<Appear>
+  <h3 style={{color: 'white'}}>Not fool proof</h3>
+</Appear>
 ---
-export default CodeSlide
 
-```javascript
-class SuperCoolComponent extends React.Component {
-  render() {
-    return (
-      <p>code slide works in markdown too whaaaaat</p>
-    );
-  }
-}
-```
+# Permissions
+
+<p>Docker automatically makes you a root user on the container</p>
+
+<p>This is obviously bad</p>
+
+<Appear>
+<h3>Solution: Make all containers come with a low permissioned user</h3>
+</Appear>
+
+<Appear>
+  <h4>This is also not fool proof</h4>
+</Appear>
+---
+export default DarkSlide
+
+# Future
+
+<Appear>
+<p style={{color: 'white'}}>Secure sandbox container runtime</p>
+</Appear>
+
+<Appear>
+<p style={{color: 'white'}}>User accounts and container snapshots</p>
+</Appear>
+
+<Appear>
+<p style={{color: 'white'}}>Sandbox section more beginner friendly</p>
+</Appear>
+---
+
+# Thank you
+
+### Questions?
