@@ -132,6 +132,16 @@ Linux Containers are enabled by `cgroups` and `namespaces`
 <Appear>
   <h3 style={{color: 'white'}}>Not fool proof</h3>
 </Appear>
+
+<Notes>
+  <p>cgroups are the way the linux kernel can isolate system resources</p>
+
+  <p>namespaces is how the linux kernel can isolate processes from each other in groups</p>
+
+  <h4>Caveat: it's still the system kernel at the end of the day</h4>
+
+  <b>Kernel exploits</b>
+</Notes>
 ---
 
 # Permissions
@@ -147,6 +157,14 @@ Linux Containers are enabled by `cgroups` and `namespaces`
 <Appear>
   <h4>This is also not fool proof</h4>
 </Appear>
+
+<Notes>
+  <p>Users being able to be root makes it more likely they find a way to break out of their container</p>
+ 
+  <p>Every user's personal container acts under the user 'damien' who has only got access for RWX in their home folder</p>
+
+  <p>Still not fool proof, Alpine comes with wget which could be used to download a script online and executed inside the home folder</p>
+</Notes>
 ---
 export default DarkSlide
 
@@ -163,6 +181,12 @@ export default DarkSlide
 <Appear>
 <p style={{color: 'white'}}>Sandbox section more beginner friendly</p>
 </Appear>
+
+<Notes>
+  <ol>
+
+  </ol>
+</Notes>
 ---
 
 # Thank you
