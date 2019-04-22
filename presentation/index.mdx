@@ -47,7 +47,19 @@ export default DarkSlide
 # How?
 
 <Appear>
-  <Heading size={2}>Containers</Heading>
+  <p style={{color: 'white'}}>Need an environment that can execute code</p>
+</Appear>
+
+<Appear>
+  <p style={{color: 'white'}}>Need an environment with isolation</p>
+</Appear>
+
+<Appear>
+  <p style={{color: 'white'}}>Need a secure environment</p>
+</Appear>
+
+<Appear>
+  <Heading size={2}>Solution: Virtualised Environment</Heading>
 </Appear>
 
 <Notes>
@@ -59,18 +71,18 @@ export default DarkSlide
     <li>Not a great idea to have people executing code directly on your server</li>
   </ul>
 
-  <cite>Containers</cite>
-
-  <ul>
-    <li>In case you're unfamilliar, containers are a way of running <b>lightweight virtualised environments similar to virtual machines</b></li>
-    <li><i>Docker</i> is the most mainstream container implementation but that's built on top of the <i>Linux Containers</i> technology</li>
-  </ul>
+  <cite>Virtualised environment</cite>
 </Notes>
 ---
 
 ![containers-vs-vms](https://codexe.ams3.digitaloceanspaces.com/Virtualisation.png)
 
 <Notes>
+  <ul>
+    <li>In case you're unfamilliar, containers are a way of running <b>lightweight virtualised environments similar to virtual machines</b></li>
+    <li><i>Docker</i> is the most mainstream container implementation but that's built on top of the <i>Linux Containers</i> technology</li>
+  </ul>
+
   <ol>
     <li>Containers being similar to virtual machines, here's an illustration of that</li>
     <li>Biggest different is no hypervisor and not Guest OS</li>
@@ -130,7 +142,7 @@ export default DarkSlide
 Linux Containers are enabled by `cgroups` and `namespaces`
 
 <Appear>
-  <h3 style={{color: 'white'}}>Not fool proof</h3>
+  <Heading size={3} style={{color: 'white'}}>Not fool proof</Heading>
 </Appear>
 
 <Notes>
@@ -155,7 +167,7 @@ Linux Containers are enabled by `cgroups` and `namespaces`
 </Appear>
 
 <Appear>
-  <h4>This is also not fool proof</h4>
+  <Heading size={4} style={{ color: 'black' } }>This is also not fool proof</Heading>
 </Appear>
 
 <Notes>
@@ -168,18 +180,45 @@ Linux Containers are enabled by `cgroups` and `namespaces`
 ---
 export default DarkSlide
 
+# Output
+
+<Appear>
+  <p style={{ color: 'white' }}>Functional development environment in the browser</p>
+</Appear>
+
+<Appear>
+  <p style={{ color: 'white' }}>Industry standard code editor</p>
+</Appear>
+
+<Appear>
+  <p style={{ color: 'white' }}>Linux terminal emulator</p>
+</Appear>
+
+---
+
+# Reflections
+
+<Appear>
+  <p>Do performance measuring sooner</p>
+</Appear>
+
+<Appear>
+  <p>Focus more on security</p>
+</Appear>
+
+---
+
+export default DarkSlide
+
+
 # Future
 
 <Appear>
-<p style={{color: 'white'}}>Secure sandbox container runtime</p>
+  <p style={{color: 'white'}}>Secure sandbox container runtime</p>
 </Appear>
 
 <Appear>
-<p style={{color: 'white'}}>User accounts and container snapshots</p>
-</Appear>
-
-<Appear>
-<p style={{color: 'white'}}>Sandbox section more beginner friendly</p>
+  <p style={{color: 'white'}}>User accounts and container snapshots</p>
 </Appear>
 
 <Notes>
